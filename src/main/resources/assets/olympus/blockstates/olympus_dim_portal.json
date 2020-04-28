@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "olympus:block/olympus_dim_portal_ew"
+    },
+    "axis=x": {
+      "model": "olympus:block/olympus_dim_portal_ns"
+    }
+  }
+}

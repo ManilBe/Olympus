@@ -1,8 +1,10 @@
 {
-  "item.olympus.olympus": "Olympus Stick",
+  "item.olympus.olympus_dim": "Olympus Tool",
+  "biome.olympus.olympus": "Olympus",
   "block.olympus.skywood_log": "Skywood Log",
   "block.olympus.skywood_leaves": "Skywood Leaves",
   "block.realpeaceful.skywood_log": "Skywood Log",
   "block.realpeaceful.skywood_leaves": "Skywood Leaves",
-  "item.realpeaceful.olympus": "Olympus Stick"
+  "item.realpeaceful.olympus": "Olympus Stick",
+  "block.olympus.skywood_planks": "Skywood Planks"
 }

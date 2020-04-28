@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_post",
+  "textures": {
+    "wall": "olympus:blocks/skyroot_plank",
+    "particle": "olympus:blocks/skyroot_plank"
+  }
+}

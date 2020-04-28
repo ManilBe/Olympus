@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "olympus:blocks/skyroot_log_base",
-    "up": "olympus:blocks/skyroot_log_base",
-    "north": "olympus:blocks/skyroot_log_side",
-    "east": "olympus:blocks/skyroot_log_side",
-    "south": "olympus:blocks/skyroot_log_side",
-    "west": "olympus:blocks/skyroot_log_side",
-    "particle": "olympus:blocks/skyroot_log_base"
+    "down": "olympus:blocks/skywood_log_base",
+    "up": "olympus:blocks/skywood_log_base",
+    "north": "olympus:blocks/skywood_log_side",
+    "east": "olympus:blocks/skywood_log_side",
+    "south": "olympus:blocks/skywood_log_side",
+    "west": "olympus:blocks/skywood_log_side",
+    "particle": "olympus:blocks/skywood_log_base"
   }
 }

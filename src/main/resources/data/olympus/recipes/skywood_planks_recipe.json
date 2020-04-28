@@ -1,0 +1,13 @@
+{
+  "group": "olympus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "olympus:skywood_log"
+    }
+  ],
+  "result": {
+    "item": "olympus:skywood_planks",
+    "count": 1
+  }
+}

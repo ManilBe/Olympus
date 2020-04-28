@@ -2,15 +2,15 @@
   "_fv": 6,
   "_type": "block",
   "definition": {
-    "texture": "skyroot_log_base",
-    "textureTop": "skyroot_log_base",
-    "textureLeft": "skyroot_log_side",
-    "textureFront": "skyroot_log_side",
-    "textureRight": "skyroot_log_side",
-    "textureBack": "skyroot_log_side",
+    "texture": "skywood_log_base",
+    "textureTop": "skywood_log_base",
+    "textureLeft": "skywood_log_side",
+    "textureFront": "skywood_log_side",
+    "textureRight": "skywood_log_side",
+    "textureBack": "skywood_log_side",
     "renderType": 10,
     "customModelName": "Normal",
-    "rotationMode": 0,
+    "rotationMode": 5,
     "hasTransparency": false,
     "connectedSides": false,
     "transparencyType": "SOLID",
@@ -44,11 +44,11 @@
     "tickRate": 10,
     "tickRandomly": false,
     "isReplaceable": false,
-    "colorOnMap": "DEFAULT",
+    "colorOnMap": "WOOD",
     "creativePickItem": {
       "value": ""
     },
-    "flammability": 0,
+    "flammability": 1,
     "fireSpreadSpeed": 0,
     "isLadder": false,
     "slipperiness": 0.6,
@@ -76,11 +76,17 @@
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,
     "inventoryOutSlotIDs": [],
-    "spawnWorldTypes": [],
-    "restrictionBiomes": [],
+    "spawnWorldTypes": [
+      "CUSTOM:OlympusDim"
+    ],
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:Olympus"
+      }
+    ],
     "blocksToReplace": [
       {
-        "value": "Blocks.LOG2"
+        "value": "Blocks.LOG"
       }
     ],
     "frequencyPerChunks": 10,
