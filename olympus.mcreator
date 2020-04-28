@@ -1,0 +1,60 @@
+{
+  "id_map": {},
+  "mod_elements": [
+    {
+      "name": "SkywoodLog",
+      "type": "block",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "skywood_log"
+    },
+    {
+      "name": "SkywoodLeaves",
+      "type": "block",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "skywood_leaves"
+    },
+    {
+      "name": "Olympus",
+      "type": "dimension",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "olympus"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.olympus.olympus": "Olympus Stick",
+      "block.olympus.skywood_log": "Skywood Log",
+      "block.olympus.skywood_leaves": "Skywood Leaves",
+      "block.realpeaceful.skywood_log": "Skywood Log",
+      "block.realpeaceful.skywood_leaves": "Skywood Leaves",
+      "item.realpeaceful.olympus": "Olympus Stick"
+    }
+  },
+  "workspaceSettings": {
+    "modid": "olympus",
+    "modName": "Olympus",
+    "version": "1.0.0",
+    "author": "ManilBe",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "1.15.2",
+    "modElementsPackage": "fr.manilbe.olympus",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202000316610
+}

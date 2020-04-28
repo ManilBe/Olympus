@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "olympus:blocks/green_leaves",
+    "up": "olympus:blocks/green_leaves",
+    "north": "olympus:blocks/green_leaves",
+    "east": "olympus:blocks/green_leaves",
+    "south": "olympus:blocks/green_leaves",
+    "west": "olympus:blocks/green_leaves",
+    "particle": "olympus:blocks/green_leaves"
+  }
+}
