@@ -2,7 +2,7 @@
   "_fv": 6,
   "_type": "block",
   "definition": {
-    "texture": "rubis_ore",
+    "texture": "gravititeore",
     "textureTop": "",
     "textureLeft": "",
     "textureFront": "",
@@ -30,7 +30,7 @@
     },
     "destroyTool": "pickaxe",
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:Rubis"
     },
     "dropAmount": 1,
     "isBeaconBase": false,
@@ -55,14 +55,14 @@
     "reactionToPushing": "NORMAL",
     "isNotColidable": false,
     "soundOnStep": {
-      "value": "GROUND"
+      "value": "STONE"
     },
     "luminance": 0.0,
     "unbreakable": false,
     "breakHarvestLevel": 3,
-    "spawnParticles": false,
+    "spawnParticles": true,
     "particleToSpawn": {
-      "value": "EXPLOSION_NORMAL"
+      "value": "TOWN_AURA"
     },
     "particleSpawningShape": "Spread",
     "particleSpawningRadious": 0.5,
@@ -79,24 +79,31 @@
     "spawnWorldTypes": [
       "CUSTOM:OlympusDim"
     ],
-    "restrictionBiomes": [],
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:Olympus"
+      }
+    ],
     "blocksToReplace": [
       {
         "value": "Blocks.COAL_ORE"
-      },
-      {
-        "value": "Blocks.DIRT#0"
       },
       {
         "value": "Blocks.DIAMOND_ORE"
       },
       {
         "value": "Blocks.IRON_ORE"
+      },
+      {
+        "value": "CUSTOM:OlympusDirt"
+      },
+      {
+        "value": "CUSTOM:OlympusGrass"
       }
     ],
-    "frequencyPerChunks": 25,
-    "frequencyOnChunk": 7,
-    "minGenerateHeight": 20,
-    "maxGenerateHeight": 255
+    "frequencyPerChunks": 8,
+    "frequencyOnChunk": 5,
+    "minGenerateHeight": 1,
+    "maxGenerateHeight": 10
   }
 }

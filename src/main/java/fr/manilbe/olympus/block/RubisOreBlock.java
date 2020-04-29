@@ -5,6 +5,8 @@ import net.minecraftforge.registries.ObjectHolder;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.gen.placement.Placement;
@@ -15,12 +17,17 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.Blocks;
@@ -32,6 +39,7 @@ import java.util.List;
 import java.util.Collections;
 
 import fr.manilbe.olympus.world.dimension.OlympusDimDimension;
+import fr.manilbe.olympus.item.RubisItem;
 import fr.manilbe.olympus.OlympusElements;
 
 @OlympusElements.ModElement.Tag
@@ -50,7 +58,7 @@ public class RubisOreBlock extends OlympusElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(1.5f, 3f).lightValue(0).harvestLevel(3)
+			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5f, 3f).lightValue(0).harvestLevel(3)
 					.harvestTool(ToolType.PICKAXE));
 			setRegistryName("rubis_ore");
 		}
@@ -60,12 +68,41 @@ public class RubisOreBlock extends OlympusElements.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(this, 1));
+			return Collections.singletonList(new ItemStack(RubisItem.block, (int) (1)));
+		}
+
+		@OnlyIn(Dist.CLIENT)
+		@Override
+		public void animateTick(BlockState state, World world, BlockPos pos, Random random) {
+			super.animateTick(state, world, pos, random);
+			PlayerEntity entity = Minecraft.getInstance().player;
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+			int i = x;
+			int j = y;
+			int k = z;
+			if (true)
+				for (int l = 0; l < 4; ++l) {
+					double d0 = (i + random.nextFloat());
+					double d1 = (j + random.nextFloat());
+					double d2 = (k + random.nextFloat());
+					int i1 = random.nextInt(2) * 2 - 1;
+					double d3 = (random.nextFloat() - 0.5D) * 0.5D;
+					double d4 = (random.nextFloat() - 0.5D) * 0.5D;
+					double d5 = (random.nextFloat() - 0.5D) * 0.5D;
+					world.addParticle(ParticleTypes.MYCELIUM, d0, d1, d2, d3, d4, d5);
+				}
 		}
 	}
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
+			boolean biomeCriteria = false;
+			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("olympus:olympus")))
+				biomeCriteria = true;
+			if (!biomeCriteria)
+				continue;
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, new OreFeature(OreFeatureConfig::deserialize) {
 				@Override
 				public boolean place(IWorld world, ChunkGenerator generator, Random rand, BlockPos pos, OreFeatureConfig config) {
@@ -81,14 +118,16 @@ public class RubisOreBlock extends OlympusElements.ModElement {
 				boolean blockCriteria = false;
 				if (blockAt.getBlock() == Blocks.COAL_ORE.getDefaultState().getBlock())
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.DIRT.getDefaultState().getBlock())
-					blockCriteria = true;
 				if (blockAt.getBlock() == Blocks.DIAMOND_ORE.getDefaultState().getBlock())
 					blockCriteria = true;
 				if (blockAt.getBlock() == Blocks.IRON_ORE.getDefaultState().getBlock())
 					blockCriteria = true;
+				if (blockAt.getBlock() == OlympusDirtBlock.block.getDefaultState().getBlock())
+					blockCriteria = true;
+				if (blockAt.getBlock() == OlympusGrassBlock.block.getDefaultState().getBlock())
+					blockCriteria = true;
 				return blockCriteria;
-			}), block.getDefaultState(), 7)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(25, 20, 20, 255))));
+			}), block.getDefaultState(), 5)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 1, 1, 10))));
 		}
 	}
 }

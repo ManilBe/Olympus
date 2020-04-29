@@ -6,9 +6,9 @@
       "value": "Blocks.GLOWSTONE"
     },
     "portalParticles": {
-      "value": "TOTEM"
+      "value": "DOLPHIN"
     },
-    "portalLuminance": 0.3,
+    "portalLuminance": 0.95,
     "portalSound": {
       "value": "block.portal.ambient"
     },
@@ -24,9 +24,9 @@
         "value": "CUSTOM:Olympus"
       }
     ],
-    "worldGenType": "End like gen",
+    "worldGenType": "Normal world gen",
     "mainFillerBlock": {
-      "value": "Blocks.GRASS"
+      "value": "CUSTOM:OlympusGrass"
     },
     "fluidBlock": {
       "value": "Blocks.FLOWING_WATER"
@@ -41,7 +41,7 @@
     "isDark": false,
     "doesWaterVaporize": false,
     "sleepResult": "ALLOW",
-    "hasSkyLight": true,
+    "hasSkyLight": false,
     "imitateOverworldBehaviour": true
   }
 }

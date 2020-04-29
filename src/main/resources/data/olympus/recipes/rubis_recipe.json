@@ -1,0 +1,11 @@
+{
+  "group": "olympus",
+  "type": "minecraft:smelting",
+  "experience": 1,
+  "ingredient": {
+    "item": "olympus:rubis_ore"
+  },
+  "result": {
+    "item": "olympus:rubis"
+  }
+}

@@ -63,6 +63,138 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "rubis_ore"
+    },
+    {
+      "name": "OlympusGrass",
+      "type": "block",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "olympus_grass"
+    },
+    {
+      "name": "Pillar",
+      "type": "block",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "pillar"
+    },
+    {
+      "name": "OlympusDirt",
+      "type": "block",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "olympus_dirt"
+    },
+    {
+      "name": "Rubis",
+      "type": "item",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis"
+    },
+    {
+      "name": "RubisRecipe",
+      "type": "recipe",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_recipe"
+    },
+    {
+      "name": "RubisPickaxe",
+      "type": "tool",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_pickaxe"
+    },
+    {
+      "name": "RubisSword",
+      "type": "tool",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_sword"
+    },
+    {
+      "name": "RubisPickaxeRecipe",
+      "type": "recipe",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_pickaxe_recipe"
+    },
+    {
+      "name": "RubisSwordRecipe",
+      "type": "recipe",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_sword_recipe"
+    },
+    {
+      "name": "RubisArmor",
+      "type": "armor",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_armor",
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "RubisHelmet",
+      "type": "recipe",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_helmet"
+    },
+    {
+      "name": "RubisChestplate",
+      "type": "recipe",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_chestplate"
+    },
+    {
+      "name": "RubisLeggings",
+      "type": "recipe",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_leggings"
+    },
+    {
+      "name": "RubisBoots",
+      "type": "recipe",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_boots"
     }
   ],
   "variable_elements": [],
@@ -70,14 +202,24 @@
   "language_map": {
     "en_us": {
       "block.olympus.rubis_ore": "Rubis Ore",
-      "item.olympus.olympus_dim": "Olympus Tool",
+      "item.olympus.rubis_armorboots": "Rubis Armor Boots",
       "biome.olympus.olympus": "Olympus",
+      "item.olympus.rubis_armorbody": "Rubis Armor Body",
+      "block.olympus.pillar": "Pillar",
+      "block.olympus.skywood_planks": "Skywood Planks",
+      "block.olympus.olympus_grass": "Olympus Grass",
+      "item.olympus.rubis_sword": "Rubis Sword",
+      "item.olympus.olympus_dim": "Olympus Tool",
+      "block.olympus.olympus_dirt": "Olympus Dirt",
       "block.olympus.skywood_log": "Skywood Log",
+      "item.olympus.rubis_pickaxe": "Rubis Pickaxe",
+      "item.olympus.rubis_armorhelmet": "Rubis Armor Helmet",
       "block.olympus.skywood_leaves": "Skywood Leaves",
       "block.realpeaceful.skywood_log": "Skywood Log",
       "block.realpeaceful.skywood_leaves": "Skywood Leaves",
       "item.realpeaceful.olympus": "Olympus Stick",
-      "block.olympus.skywood_planks": "Skywood Planks"
+      "item.olympus.rubis": "Rubis",
+      "item.olympus.rubis_armorlegs": "Rubis Armor Leggings"
     }
   },
   "workspaceSettings": {

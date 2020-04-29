@@ -1,0 +1,39 @@
+{
+  "group": "olympus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "olympus:rubis"
+    },
+    "2": {
+      "item": "olympus:rubis"
+    },
+    "3": {
+      "item": "olympus:rubis"
+    },
+    "4": {
+      "item": "olympus:rubis"
+    },
+    "5": {
+      "item": "olympus:rubis"
+    },
+    "6": {
+      "item": "olympus:rubis"
+    },
+    "7": {
+      "item": "olympus:rubis"
+    },
+    "8": {
+      "item": "olympus:rubis"
+    }
+  },
+  "result": {
+    "item": "olympus:rubis_armorbody",
+    "count": 1
+  }
+}

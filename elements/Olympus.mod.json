@@ -4,15 +4,15 @@
   "definition": {
     "name": "Olympus",
     "groundBlock": {
-      "value": "Blocks.GRASS"
+      "value": "CUSTOM:OlympusGrass"
     },
     "undergroundBlock": {
-      "value": "Blocks.DIRT#0"
+      "value": "CUSTOM:OlympusDirt"
     },
     "generateLakes": true,
     "treeType": 1,
     "vanillaTreeType": "Default",
-    "minHeight": 3,
+    "minHeight": 5,
     "spawnVines": false,
     "treeVines": {
       "value": "Blocks.VINE"
@@ -32,7 +32,7 @@
       "falpha": 0.0
     },
     "grassColor": {
-      "value": -13382401,
+      "value": -7871887,
       "falpha": 0.0
     },
     "waterColor": {
@@ -40,7 +40,7 @@
       "falpha": 0.0
     },
     "treesPerChunk": 5,
-    "grassPerChunk": 4,
+    "grassPerChunk": 2,
     "flowersPerChunk": 4,
     "mushroomsPerChunk": 0,
     "bigMushroomsChunk": 0,
@@ -51,8 +51,8 @@
     "deadBushesPerChunk": 0,
     "rainingPossibility": 0.0,
     "temperature": 0.5,
-    "baseHeight": 0.1,
-    "heightVariation": 0.2,
+    "baseHeight": 0.0,
+    "heightVariation": 0.09999999999999999,
     "spawnBiome": false,
     "biomeWeight": 10,
     "biomeType": "WARM",

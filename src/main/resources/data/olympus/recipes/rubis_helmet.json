@@ -1,0 +1,29 @@
+{
+  "group": "olympus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5"
+  ],
+  "key": {
+    "0": {
+      "item": "olympus:rubis"
+    },
+    "1": {
+      "item": "olympus:rubis"
+    },
+    "2": {
+      "item": "olympus:rubis"
+    },
+    "3": {
+      "item": "olympus:rubis"
+    },
+    "5": {
+      "item": "olympus:rubis"
+    }
+  },
+  "result": {
+    "item": "olympus:rubis_armorhelmet",
+    "count": 1
+  }
+}

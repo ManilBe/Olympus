@@ -23,13 +23,16 @@ import net.minecraft.world.gen.layer.traits.IC0Transformer;
 import net.minecraft.world.gen.layer.ZoomLayer;
 import net.minecraft.world.gen.layer.Layer;
 import net.minecraft.world.gen.layer.IslandLayer;
+import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.carver.CaveWorldCarver;
 import net.minecraft.world.gen.area.LazyArea;
 import net.minecraft.world.gen.area.IAreaFactory;
+import net.minecraft.world.gen.OverworldGenSettings;
+import net.minecraft.world.gen.OverworldChunkGenerator;
 import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
-import net.minecraft.world.gen.EndGenerationSettings;
-import net.minecraft.world.gen.EndChunkGenerator;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.Dimension;
@@ -84,6 +87,7 @@ import java.util.Arrays;
 import java.lang.reflect.Method;
 
 import fr.manilbe.olympus.item.OlympusDimItem;
+import fr.manilbe.olympus.block.OlympusGrassBlock;
 import fr.manilbe.olympus.OlympusElements;
 
 import com.google.common.collect.Sets;
@@ -112,7 +116,7 @@ public class OlympusDimDimension extends OlympusElements.ModElement {
 	@SubscribeEvent
 	public void onRegisterDimensionsEvent(RegisterDimensionsEvent event) {
 		if (DimensionType.byName(new ResourceLocation("olympus:olympus_dim")) == null) {
-			DimensionManager.registerDimension(new ResourceLocation("olympus:olympus_dim"), dimension, null, true);
+			DimensionManager.registerDimension(new ResourceLocation("olympus:olympus_dim"), dimension, null, false);
 		}
 		type = DimensionType.byName(new ResourceLocation("olympus:olympus_dim"));
 	}
@@ -130,7 +134,7 @@ public class OlympusDimDimension extends OlympusElements.ModElement {
 	public static class CustomPortalBlock extends NetherPortalBlock {
 		public CustomPortalBlock() {
 			super(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS)
-					.lightValue(5).noDrops());
+					.lightValue(14).noDrops());
 			setRegistryName("olympus_dim_portal");
 		}
 
@@ -235,7 +239,7 @@ public class OlympusDimDimension extends OlympusElements.ModElement {
 					pz = pos.getZ() + 0.5 + 0.25 * j;
 					vz = random.nextFloat() * 2 * j;
 				}
-				world.addParticle(ParticleTypes.TOTEM_OF_UNDYING, px, py, pz, vx, vy, vz);
+				world.addParticle(ParticleTypes.DOLPHIN, px, py, pz, vx, vy, vz);
 			}
 			if (random.nextInt(110) == 0)
 				world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
@@ -720,19 +724,28 @@ public class OlympusDimDimension extends OlympusElements.ModElement {
 		}
 	}
 
-	public static class ChunkProviderModded extends EndChunkGenerator {
+	public static class ChunkProviderModded extends OverworldChunkGenerator {
 		private static final int SEALEVEL = 63;
 		public ChunkProviderModded(IWorld world, BiomeProvider provider) {
-			super(world, provider, new EndGenerationSettings() {
+			super(world, provider, new OverworldGenSettings() {
 				public BlockState getDefaultBlock() {
-					return Blocks.GRASS_BLOCK.getDefaultState();
+					return OlympusGrassBlock.block.getDefaultState();
 				}
 
 				public BlockState getDefaultFluid() {
 					return Blocks.WATER.getDefaultState();
 				}
 			});
-			this.randomSeed.skip(3946);
+			this.randomSeed.skip(5349);
+		}
+
+		@Override
+		public int getSeaLevel() {
+			return SEALEVEL;
+		}
+
+		@Override
+		public void spawnMobs(ServerWorld worldIn, boolean spawnHostileMobs, boolean spawnPeacefulMobs) {
 		}
 	}
 
@@ -748,6 +761,15 @@ public class OlympusDimDimension extends OlympusElements.ModElement {
 		public BiomeProviderCustom(World world) {
 			super(new HashSet<Biome>(Arrays.asList(dimensionBiomes)));
 			this.genBiomes = getBiomeLayer(world.getSeed());
+			for (Biome biome : this.field_226837_c_) {
+				biome.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(new CaveWorldCarver(ProbabilityConfig::deserialize, 256) {
+					{
+						carvableBlocks = ImmutableSet.of(OlympusGrassBlock.block.getDefaultState().getBlock(),
+								biome.getSurfaceBuilder().getConfig().getTop().getBlock(),
+								biome.getSurfaceBuilder().getConfig().getUnder().getBlock());
+					}
+				}, new ProbabilityConfig(0.14285715f)));
+			}
 		}
 
 		public Biome getNoiseBiome(int x, int y, int z) {

@@ -38,6 +38,8 @@ import java.util.Random;
 
 import fr.manilbe.olympus.block.SkywoodLogBlock;
 import fr.manilbe.olympus.block.SkywoodLeavesBlock;
+import fr.manilbe.olympus.block.OlympusGrassBlock;
+import fr.manilbe.olympus.block.OlympusDirtBlock;
 import fr.manilbe.olympus.OlympusElements;
 
 import com.google.common.collect.Lists;
@@ -60,10 +62,10 @@ public class OlympusBiome extends OlympusElements.ModElement {
 	}
 	static class CustomBiome extends Biome {
 		public CustomBiome() {
-			super(new Biome.Builder().downfall(0f).depth(0.1f).scale(0.2f).temperature(0.5f).precipitation(Biome.RainType.NONE)
+			super(new Biome.Builder().downfall(0f).depth(0f).scale(0.1f).temperature(0.5f).precipitation(Biome.RainType.NONE)
 					.category(Biome.Category.NONE).waterColor(-16777012).waterFogColor(-16777012)
-					.surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(),
-							Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+					.surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(OlympusGrassBlock.block.getDefaultState(),
+							OlympusDirtBlock.block.getDefaultState(), OlympusDirtBlock.block.getDefaultState())));
 			setRegistryName("olympus");
 			DefaultBiomeFeatures.addCarvers(this);
 			DefaultBiomeFeatures.addStructures(this);
@@ -73,10 +75,10 @@ public class OlympusBiome extends OlympusElements.ModElement {
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.DEFAULT_FLOWER_CONFIG)
 					.withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.GRASS_CONFIG)
-					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(4))));
+					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new CustomTreeFeature()
 					.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(SkywoodLogBlock.block.getDefaultState()),
-							new SimpleBlockStateProvider(SkywoodLeavesBlock.block.getDefaultState()))).baseHeight(3)
+							new SimpleBlockStateProvider(SkywoodLeavesBlock.block.getDefaultState()))).baseHeight(5)
 									.setSapling((net.minecraftforge.common.IPlantable) Blocks.JUNGLE_SAPLING).build())
 					.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(5, 0.1F, 1))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.SUGAR_CANE_CONFIG)
@@ -97,13 +99,13 @@ public class OlympusBiome extends OlympusElements.ModElement {
 		@OnlyIn(Dist.CLIENT)
 		@Override
 		public int getGrassColor(double posX, double posZ) {
-			return -13382401;
+			return -7871887;
 		}
 
 		@OnlyIn(Dist.CLIENT)
 		@Override
 		public int getFoliageColor() {
-			return -13382401;
+			return -7871887;
 		}
 
 		@OnlyIn(Dist.CLIENT)
@@ -124,7 +126,7 @@ public class OlympusBiome extends OlympusElements.ModElement {
 			if (!(worldgen instanceof IWorld))
 				return false;
 			IWorld world = (IWorld) worldgen;
-			int height = rand.nextInt(5) + 3;
+			int height = rand.nextInt(5) + 5;
 			boolean spawnTree = true;
 			if (position.getY() >= 1 && position.getY() + height + 1 <= world.getHeight()) {
 				for (int j = position.getY(); j <= position.getY() + 1 + height; j++) {
@@ -150,12 +152,14 @@ public class OlympusBiome extends OlympusElements.ModElement {
 				} else {
 					Block ground = world.getBlockState(position.add(0, -1, 0)).getBlock();
 					Block ground2 = world.getBlockState(position.add(0, -2, 0)).getBlock();
-					if (!((ground == Blocks.GRASS_BLOCK.getDefaultState().getBlock() || ground == Blocks.DIRT.getDefaultState().getBlock())
-							&& (ground2 == Blocks.GRASS_BLOCK.getDefaultState().getBlock() || ground2 == Blocks.DIRT.getDefaultState().getBlock())))
+					if (!((ground == OlympusGrassBlock.block.getDefaultState().getBlock()
+							|| ground == OlympusDirtBlock.block.getDefaultState().getBlock())
+							&& (ground2 == OlympusGrassBlock.block.getDefaultState().getBlock()
+									|| ground2 == OlympusDirtBlock.block.getDefaultState().getBlock())))
 						return false;
 					BlockState state = world.getBlockState(position.down());
 					if (position.getY() < world.getHeight() - height - 1) {
-						setTreeBlockState(changedBlocks, world, position.down(), Blocks.DIRT.getDefaultState(), bbox);
+						setTreeBlockState(changedBlocks, world, position.down(), OlympusDirtBlock.block.getDefaultState(), bbox);
 						for (int genh = position.getY() - 3 + height; genh <= position.getY() + height; genh++) {
 							int i4 = genh - (position.getY() + height);
 							int j1 = (int) (1 - i4 * 0.5);
@@ -216,7 +220,8 @@ public class OlympusBiome extends OlympusElements.ModElement {
 		private boolean canGrowInto(Block blockType) {
 			return blockType.getDefaultState().getMaterial() == Material.AIR || blockType == SkywoodLogBlock.block.getDefaultState().getBlock()
 					|| blockType == SkywoodLeavesBlock.block.getDefaultState().getBlock()
-					|| blockType == Blocks.GRASS_BLOCK.getDefaultState().getBlock() || blockType == Blocks.DIRT.getDefaultState().getBlock();
+					|| blockType == OlympusGrassBlock.block.getDefaultState().getBlock()
+					|| blockType == OlympusDirtBlock.block.getDefaultState().getBlock();
 		}
 
 		private boolean isReplaceable(IWorld world, BlockPos pos) {

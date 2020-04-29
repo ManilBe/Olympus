@@ -1,0 +1,27 @@
+{
+  "_fv": 6,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "gravitite_pickaxe",
+    "customModelName": "Normal",
+    "name": "Rubis Pickaxe",
+    "creativeTab": {
+      "value": "TOOLS"
+    },
+    "toolType": "Pickaxe",
+    "harvestLevel": 1,
+    "efficiency": 9.0,
+    "attackSpeed": 1.5999999999999999,
+    "enchantability": 2,
+    "damageVsEntity": 3.1999999999999997,
+    "usageCount": 2509,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "CUSTOM:Rubis"
+      }
+    ]
+  }
+}

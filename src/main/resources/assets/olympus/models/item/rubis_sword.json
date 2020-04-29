@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "olympus:items/gravitite_sword"
+  }
+}

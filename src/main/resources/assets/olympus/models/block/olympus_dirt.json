@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "olympus:blocks/aether_dirt",
+    "particle": "olympus:blocks/aether_dirt"
+  }
+}

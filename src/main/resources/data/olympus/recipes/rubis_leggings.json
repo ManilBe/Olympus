@@ -1,0 +1,36 @@
+{
+  "group": "olympus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+      "item": "olympus:rubis"
+    },
+    "1": {
+      "item": "olympus:rubis"
+    },
+    "2": {
+      "item": "olympus:rubis"
+    },
+    "3": {
+      "item": "olympus:rubis"
+    },
+    "5": {
+      "item": "olympus:rubis"
+    },
+    "6": {
+      "item": "olympus:rubis"
+    },
+    "8": {
+      "item": "olympus:rubis"
+    }
+  },
+  "result": {
+    "item": "olympus:rubis_armorlegs",
+    "count": 1
+  }
+}

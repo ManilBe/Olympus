@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "olympus:blocks/pillar_top",
+    "up": "olympus:blocks/pillar_top",
+    "north": "olympus:blocks/pillar_side",
+    "east": "olympus:blocks/pillar_side",
+    "south": "olympus:blocks/pillar_side",
+    "west": "olympus:blocks/pillar_side",
+    "particle": "olympus:blocks/pillar_top"
+  }
+}

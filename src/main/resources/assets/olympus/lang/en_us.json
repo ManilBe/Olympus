@@ -1,11 +1,21 @@
 {
   "block.olympus.rubis_ore": "Rubis Ore",
-  "item.olympus.olympus_dim": "Olympus Tool",
+  "item.olympus.rubis_armorboots": "Rubis Armor Boots",
   "biome.olympus.olympus": "Olympus",
+  "item.olympus.rubis_armorbody": "Rubis Armor Body",
+  "block.olympus.pillar": "Pillar",
+  "block.olympus.skywood_planks": "Skywood Planks",
+  "block.olympus.olympus_grass": "Olympus Grass",
+  "item.olympus.rubis_sword": "Rubis Sword",
+  "item.olympus.olympus_dim": "Olympus Tool",
+  "block.olympus.olympus_dirt": "Olympus Dirt",
   "block.olympus.skywood_log": "Skywood Log",
+  "item.olympus.rubis_pickaxe": "Rubis Pickaxe",
+  "item.olympus.rubis_armorhelmet": "Rubis Armor Helmet",
   "block.olympus.skywood_leaves": "Skywood Leaves",
   "block.realpeaceful.skywood_log": "Skywood Log",
   "block.realpeaceful.skywood_leaves": "Skywood Leaves",
   "item.realpeaceful.olympus": "Olympus Stick",
-  "block.olympus.skywood_planks": "Skywood Planks"
+  "item.olympus.rubis": "Rubis",
+  "item.olympus.rubis_armorlegs": "Rubis Armor Leggings"
 }

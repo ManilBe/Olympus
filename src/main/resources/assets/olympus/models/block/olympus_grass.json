@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "olympus:blocks/aether_dirt",
+    "up": "olympus:blocks/aether_grass_top",
+    "north": "olympus:blocks/aether_grass_side_snowy",
+    "east": "olympus:blocks/aether_grass_side_snowy",
+    "south": "olympus:blocks/aether_grass_side_snowy",
+    "west": "olympus:blocks/aether_grass_side_snowy",
+    "particle": "olympus:blocks/aether_dirt"
+  }
+}
