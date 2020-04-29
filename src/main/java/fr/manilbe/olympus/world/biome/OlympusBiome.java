@@ -61,7 +61,7 @@ public class OlympusBiome extends OlympusElements.ModElement {
 	static class CustomBiome extends Biome {
 		public CustomBiome() {
 			super(new Biome.Builder().downfall(0f).depth(0.1f).scale(0.2f).temperature(0.5f).precipitation(Biome.RainType.NONE)
-					.category(Biome.Category.NONE).waterColor(-13395457).waterFogColor(-13395457)
+					.category(Biome.Category.NONE).waterColor(-16777012).waterFogColor(-16777012)
 					.surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(),
 							Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
 			setRegistryName("olympus");
@@ -76,29 +76,34 @@ public class OlympusBiome extends OlympusElements.ModElement {
 					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(4))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new CustomTreeFeature()
 					.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(SkywoodLogBlock.block.getDefaultState()),
-							new SimpleBlockStateProvider(SkywoodLeavesBlock.block.getDefaultState()))).baseHeight(6)
+							new SimpleBlockStateProvider(SkywoodLeavesBlock.block.getDefaultState()))).baseHeight(3)
 									.setSapling((net.minecraftforge.common.IPlantable) Blocks.JUNGLE_SAPLING).build())
 					.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(5, 0.1F, 1))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.SUGAR_CANE_CONFIG)
 					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 			addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 					Feature.DISK
+							.withConfiguration(new SphereReplaceConfig(Blocks.SAND.getDefaultState(), 7, 2,
+									Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState())))
+							.withPlacement(Placement.COUNT_TOP_SOLID.configure(new FrequencyConfig(3))));
+			addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
+					Feature.DISK
 							.withConfiguration(new SphereReplaceConfig(Blocks.GRAVEL.getDefaultState(), 6, 2,
 									Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState())))
-							.withPlacement(Placement.COUNT_TOP_SOLID.configure(new FrequencyConfig(1))));
+							.withPlacement(Placement.COUNT_TOP_SOLID.configure(new FrequencyConfig(3))));
 			this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 15, 1, 5));
 		}
 
 		@OnlyIn(Dist.CLIENT)
 		@Override
 		public int getGrassColor(double posX, double posZ) {
-			return -16711783;
+			return -13382401;
 		}
 
 		@OnlyIn(Dist.CLIENT)
 		@Override
 		public int getFoliageColor() {
-			return -16711783;
+			return -13382401;
 		}
 
 		@OnlyIn(Dist.CLIENT)
@@ -119,7 +124,7 @@ public class OlympusBiome extends OlympusElements.ModElement {
 			if (!(worldgen instanceof IWorld))
 				return false;
 			IWorld world = (IWorld) worldgen;
-			int height = rand.nextInt(5) + 6;
+			int height = rand.nextInt(5) + 3;
 			boolean spawnTree = true;
 			if (position.getY() >= 1 && position.getY() + height + 1 <= world.getHeight()) {
 				for (int j = position.getY(); j <= position.getY() + 1 + height; j++) {

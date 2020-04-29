@@ -33,6 +33,7 @@ import net.minecraft.world.gen.EndChunkGenerator;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.Dimension;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
@@ -641,9 +642,27 @@ public class OlympusDimDimension extends OlympusElements.ModElement {
 		}
 
 		@Override
+		public void calculateInitialWeather() {
+		}
+
+		@Override
+		public void updateWeather(Runnable defaultWeather) {
+		}
+
+		@Override
+		public boolean canDoLightning(Chunk chunk) {
+			return false;
+		}
+
+		@Override
+		public boolean canDoRainSnowIce(Chunk chunk) {
+			return false;
+		}
+
+		@Override
 		@OnlyIn(Dist.CLIENT)
 		public Vec3d getFogColor(float cangle, float ticks) {
-			return new Vec3d(0.752941176471, 0.847058823529, 1);
+			return new Vec3d(0.2, 0.8, 1);
 		}
 
 		@Override
@@ -656,7 +675,7 @@ public class OlympusDimDimension extends OlympusElements.ModElement {
 
 		@Override
 		public boolean isSurfaceWorld() {
-			return false;
+			return true;
 		}
 
 		@Override

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "olympus:blocks/rubis_ore",
+    "particle": "olympus:blocks/rubis_ore"
+  }
+}

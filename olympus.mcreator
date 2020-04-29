@@ -54,12 +54,22 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "skywood_planks_recipe"
+    },
+    {
+      "name": "RubisOre",
+      "type": "block",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rubis_ore"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "block.olympus.rubis_ore": "Rubis Ore",
       "item.olympus.olympus_dim": "Olympus Tool",
       "biome.olympus.olympus": "Olympus",
       "block.olympus.skywood_log": "Skywood Log",
